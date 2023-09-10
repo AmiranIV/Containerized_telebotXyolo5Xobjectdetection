@@ -62,5 +62,7 @@ once you have the Docker images build of the two micro services plus the mongoDB
 
 1. deploy 3 micro services MANUALLY using docker run for each container using the SAME NETWORK for each microservice.
 
-2. push the polybot and yolo5 apps as docker images to DockerHub, and use one command, docker compose using the composed file I attached, less complicated and more efficient. 
+2. push the polybot and yolo5 apps as docker images to DockerHub, and use one command, docker compose using the composed file I attached, less complicated and more efficient.
+
+#Source to push images to DockerHub- https://www.youtube.com/watch?v=tJsrv_kPh30 
 
