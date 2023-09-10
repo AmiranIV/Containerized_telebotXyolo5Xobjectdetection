@@ -57,7 +57,7 @@ services:
     env_file:
       - secrets.env
     environment:
-      - CONT_NAME=yolo5app
+      - CONT_NAME=<YOUR_YOLO_SERVICE_NAME(my case yolo5app)>
 networks:
   mongoCluster:
     driver: bridge
