@@ -180,25 +180,20 @@ class ImageProcessingBot(Bot):
         image_path = self.download_user_photo(msg)
         # Upload the image to S3
         s3_client = boto3.client('s3')
-        images_bucket = 's3amiranivaug'
+        images_bucket = <'YOURBUCKETNAME'>
         s3_key = f'{msg["chat"]["id"]}.jpeg'
         s3_client.upload_file(image_path, images_bucket, s3_key)
 
         time.sleep(5)
 
         # Send a request to the YOLO5 microservice # with the containers name once its build
-        yolo5_url = f'http://cryingyolo5:8081/predict?imgName={s3_key}'
+        yolo5_url = f'http://{<''YOUR SERVICE NAME OR CONTAINER NAME''>}:8081/predict?imgName={s3_key}'
         response = requests.post(yolo5_url)
         if response.status_code == 200:
             # Print the JSON response as text
             json_response = response.text
             print(json_response)
             sys.stdout.flush()
-
-            # # Save the JSON response to a file
-            # json_file_path = f'{msg["chat"]["id"]}_response.json'
-            # with open(json_file_path, 'w') as json_file:
-            #     json_file.write(json_response)
 
             #Parse the Json file and send user a message:
             response_data = json.loads(json_response)
