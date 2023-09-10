@@ -110,8 +110,3 @@ class Img:
         # TODO remove the `raise` below, and write your implementation
         raise NotImplementedError()
 
-# my_img =Img('test/beatles.jpeg')
-# another_image = Img('test/beatles.jpeg')
-# my_img.concat(another_image)
-# my_img.save_img()
-
