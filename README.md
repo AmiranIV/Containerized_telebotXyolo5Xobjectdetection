@@ -64,5 +64,9 @@ once you have the Docker images build of the two micro services plus the mongoDB
 
 2. push the polybot and yolo5 apps as docker images to DockerHub, and use one command, docker compose using the composed file I attached, less complicated and more efficient.
 
-#Source to push images to DockerHub- https://www.youtube.com/watch?v=tJsrv_kPh30 
+#Source to push images to DockerHub- https://www.youtube.com/watch?v=tJsrv_kPh30
+
+#To not post my telegram token , I used secrets.env file.
+
+To use secrets: https://docs.docker.com/compose/compose-file/05-services/#secrets
 
