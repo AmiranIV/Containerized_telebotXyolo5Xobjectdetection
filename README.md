@@ -52,6 +52,15 @@ REQUIRED! AWS CLI
 
 after installed aws cli ,you can preform aws configure but there's no need, because you can grant premission using AWS role to the EC2 instance you deploy the app on.
 
+REQUIRED! DOCKER 
+#Once you finish update yolo5 code with your bucket name ,and polybot with your codes , and mongoDB replica set params to adjust to you, preform docker build to both services:
+yolo5, and polybot.
 
+Final Step:
 
+once you have the Docker images build of the two micro services plus the mongoDB who is already deployed using docker, you have two options:
+
+1. deploy 3 micro services MANUALLY using docker run for each container using the SAME NETWORK for each microservice.
+
+2. push the polybot and yolo5 apps as docker images to DockerHub, and use one command, docker compose using the composed file I attached, less complicated and more efficient. 
 
