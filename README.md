@@ -48,5 +48,10 @@ https://github.com/ultralytics/yolov5.git
 
 Telegram bot is running on app.py, and requires bot.py for functionality.
 
+REQUIRED! AWS CLI 
+
+after installed aws cli ,you can preform aws configure but there's no need, because you can grant premission using AWS role to the EC2 instance you deploy the app on.
+
+
 
 
