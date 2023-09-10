@@ -1,0 +1,64 @@
+version: '3'
+services:
+  mongo1:
+    image: mongo
+    container_name: mongo1
+    networks:
+      - mongoCluster
+    ports:
+      - "27017:27017"
+    command: "--replSet myReplicaSet"
+  mongo2:
+    image: mongo
+    container_name: mongo2
+    networks:
+      - mongoCluster
+    command: "--replSet myReplicaSet"
+  mongo3:
+    image: mongo
+    container_name: mongo3
+    networks:
+      - mongoCluster
+    command: "--replSet myReplicaSet"
+  mongo-init:
+    image: mongo
+    container_name: mongo-init
+    networks:
+      - mongoCluster
+    depends_on:
+      - mongo1
+      - mongo2
+      - mongo3
+    command: >
+      mongo mongo1:27017/admin --eval "
+      rs.initiate({
+        _id: 'myReplicaSet',
+        members: [
+          { _id: 0, host: 'mongo1:27017' },
+          { _id: 1, host: 'mongo2:27017' },
+          { _id: 2, host: 'mongo3:27017' }
+        ]
+      });
+      "
+  yolo5app:
+    image: <YOURUSER/IMAGE NAME YOLO:VERSION>
+    container_name: yolo5app
+    networks:
+      - mongoCluster
+    ports:
+      - "8081:8081"
+  telebot:
+    image: <YOURUSER/IMAGE NAME YOLO:VERSION>
+    container_name: telebot
+    networks:
+      - mongoCluster
+    ports:
+      - "8443:8443"
+    env_file:
+      - secrets.env
+    environment:
+      - CONT_NAME=yolo5app
+networks:
+  mongoCluster:
+    driver: bridge
+
