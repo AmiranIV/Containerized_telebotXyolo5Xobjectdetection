@@ -23,7 +23,7 @@ def predict():
     prediction_id = str(uuid.uuid4())
     logger.info(f'prediction: {prediction_id}. start processing')
     #initilize instance s3 downloading the image
-    BUCKET_NAME = 's3amiranivaug'
+    BUCKET_NAME = 'YOURBUCKETNAME'
     s3 = boto3.client('s3')
     images_bucket = BUCKET_NAME
     original_img_path = f'/app/{img_name}'
