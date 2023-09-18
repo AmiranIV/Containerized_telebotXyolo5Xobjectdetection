@@ -74,3 +74,11 @@ once you have the Docker images build of the two micro services plus the mongoDB
 
 To use secrets: https://docs.docker.com/compose/compose-file/05-services/#secrets
 
+
+### Links to my images at Dockerhub (they only work for me, but you can use them to explore)
+
+telebot - https://hub.docker.com/repository/docker/amiraniv/telebot/general
+
+yolo5 - https://hub.docker.com/repository/docker/amiraniv/yolo5app/general
+
+
