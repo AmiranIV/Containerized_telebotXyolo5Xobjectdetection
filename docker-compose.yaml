@@ -7,6 +7,8 @@ services:
       - mongoCluster
     ports:
       - "27017:27017"
+    volumes:
+      - /home/ubuntu/data:/data/db
     command: "--replSet myReplicaSet"
   mongo2:
     image: mongo
@@ -41,14 +43,14 @@ services:
       });
       "
   yolo5app:
-    image: <YOURUSER/IMAGE NAME YOLO:VERSION>
+    image: amiraniv/yolo5app:v1.0
     container_name: yolo5app
     networks:
       - mongoCluster
     ports:
       - "8081:8081"
   telebot:
-    image: <YOURUSER/IMAGE NAME YOLO:VERSION>
+    image: amiraniv/telebot:v1.0
     container_name: telebot
     networks:
       - mongoCluster
@@ -57,8 +59,7 @@ services:
     env_file:
       - secrets.env
     environment:
-      - CONT_NAME=<YOUR_YOLO_SERVICE_NAME(my case yolo5app)>
+      - CONT_NAME=yolo5app
 networks:
   mongoCluster:
     driver: bridge
-
