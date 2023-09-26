@@ -74,6 +74,18 @@ once you have the Docker images build of the two micro services plus the mongoDB
 
 To use secrets: https://docs.docker.com/compose/compose-file/05-services/#secrets
 
+## To Deploy With 1 Command using ngrok (after you have your images ready to use!)
+
+1. install ngrok, modify the scripts ngstart.sh to use your secrets location (inside the container or at your machine)
+according to my instructions.
+
+2. after you set up the secrets.env ngstart.sh and new-start-app.sh with your matching settings according to the instructions 
+
+run the command : bash new-start-app.sh 
+
+what will happened is the ngrok will be deployed pull the url to the secrets.env file which triggered inside the
+docker-compose.yaml, and run smoothly, every time the app stops the secrets.env overwritten to the first settings and is ready to go again. 
+
 
 ### Links to my images at Dockerhub (they only work for me, but you can use them to explore)
 
